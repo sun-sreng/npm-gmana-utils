@@ -1,0 +1,74 @@
+{
+  "name": "@gmana/utils",
+  "version": "1.4.21",
+  "description": "A collection of utility functions for JavaScript",
+  "keywords": [
+    "gmana",
+    "utils",
+    "javascript",
+    "typescript",
+    "esm",
+    "library"
+  ],
+  "author": "Sun Sreng",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gmana/utils.git"
+  },
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "rolldown -c rolldown.dev.config.ts -w",
+    "build": "rolldown -c rolldown.config.ts",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist",
+    "build:all": "npm run build && npm run build:types",
+    "test": "vitest",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run build:all",
+    "publish": "npm publish --access public",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" --max-warnings=0",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "check": "bun run lint && bun run format:check"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.1",
+    "@types/bun": "latest",
+    "@typescript-eslint/eslint-plugin": "^8.35.1",
+    "@typescript-eslint/parser": "^8.35.1",
+    "eslint": "^9.30.1",
+    "eslint-config-prettier": "^10.1.5",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
+    "rolldown": "^1.0.0-beta.23",
+    "typescript-eslint": "^8.35.1",
+    "vitest": "^3.2.4"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "tailwind-merge": "^3.3.1"
+  },
+  "prettier": {
+    "endOfLine": "lf",
+    "semi": false,
+    "singleQuote": false,
+    "trailingComma": "es5",
+    "printWidth": 120,
+    "tabWidth": 2,
+    "useTabs": false
+  }
+}
