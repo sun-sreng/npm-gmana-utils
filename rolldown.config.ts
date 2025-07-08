@@ -1,18 +1,20 @@
-import { defineConfig } from 'rolldown';
+import { defineConfig } from "rolldown"
+import { dts } from "rolldown-plugin-dts"
 
 export default defineConfig({
-  input: 'src/index.ts',
+  input: "src/index.ts",
   treeshake: true,
-  external: ['typescript'],
+  external: ["typescript"],
+  plugins: [dts()],
   output: {
-    file: 'dist/index.js',
-    format: 'esm',
-    sourcemap: true,
+    dir: "dist",
+    format: "esm",
     minify: true,
   },
-  define: { 
-    'process.env.NODE_ENV': "'production'",
-    'process.env.BUILD_TIME': `'${new Date().toISOString()}'`
+
+  define: {
+    "process.env.NODE_ENV": "'production'",
+    "process.env.BUILD_TIME": `'${new Date().toISOString()}'`,
   },
-  preserveEntrySignatures: 'strict'
-});
+  preserveEntrySignatures: "strict",
+})

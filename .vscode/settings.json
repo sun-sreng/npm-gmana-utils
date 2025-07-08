@@ -1,4 +1,5 @@
 {
+  "editor.codeActionsOnSave": ["source.sortPackageJson"],
   "cSpell.words": ["BDAY", "gmana", "rolldown", "SOCIALPROFILE", "vcard"],
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

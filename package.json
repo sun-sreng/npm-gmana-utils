@@ -1,14 +1,17 @@
 {
   "name": "@gmana/utils",
-  "version": "1.5.0",
-  "description": "A collection of utility functions for JavaScript",
+  "version": "1.5.1",
+  "description": "TypeScript utility functions with Tailwind CSS helpers and common JavaScript utilities",
   "keywords": [
     "gmana",
     "utils",
+    "utilities",
     "javascript",
     "typescript",
     "esm",
-    "library"
+    "library",
+    "tailwind",
+    "helpers"
   ],
   "homepage": "https://github.com/sun-sreng/npm-gmana-utils#readme",
   "bugs": {
@@ -31,15 +34,17 @@
       "types": "./dist/index.d.ts"
     }
   },
+  "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "rolldown -c rolldown.config.ts",
-    "build:all": "npm run build && npm run build:types",
+    "build:all": "bun run build && bun run build:types",
     "build:types": "tsc --emitDeclarationOnly --outDir dist",
     "check": "bun run lint && bun run format:check",
     "clean": "rimraf dist",
@@ -47,11 +52,9 @@
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --max-warnings=0",
-    "prepublishOnly": "npm run build:all",
-    "release:major": "npm version major && npm publish --access public",
-    "release:minor": "npm version minor && npm publish --access public",
-    "release:patch": "npm version patch && npm publish --access public",
-    "test": "vitest"
+    "prepublishOnly": "bun run clean && bun run build:all && bun run test",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "prettier": {
     "endOfLine": "lf",
@@ -68,23 +71,26 @@
   "devDependencies": {
     "@eslint/js": "^9.30.1",
     "@types/bun": "latest",
-    "@typescript-eslint/eslint-plugin": "^8.35.1",
-    "@typescript-eslint/parser": "^8.35.1",
+    "@typescript-eslint/eslint-plugin": "^8.36.0",
+    "@typescript-eslint/parser": "^8.36.0",
     "eslint": "^9.30.1",
     "eslint-config-prettier": "^10.1.5",
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
-    "rolldown": "^1.0.0-beta.23",
-    "typescript-eslint": "^8.35.1",
+    "rolldown": "^1.0.0-beta.24",
+    "rolldown-plugin-dts": "^0.13.13",
+    "typescript-eslint": "^8.36.0",
     "vitest": "^3.2.4"
   },
   "peerDependencies": {
     "typescript": ">=5.0.0"
   },
   "engines": {
+    "bun": ">=1.0.0",
     "node": ">=18"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

@@ -1,0 +1,21 @@
+# Development files
+src/
+*.config.*
+.env*
+.git*
+node_modules/
+coverage/
+.nyc_output/
+test/
+tests/
+__tests__/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
