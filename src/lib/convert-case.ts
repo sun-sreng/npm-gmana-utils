@@ -64,9 +64,10 @@ export function convertCase(input: string, caseType: CaseType): string {
     case "uppercase":
       return words.map((w) => w.toUpperCase()).join(" ")
 
-    case "sentence":
+    case "sentence": {
       const sentence = words.map((w) => w.toLowerCase()).join(" ")
       return capitalize(sentence)
+    }
 
     case "title":
       return words.map(capitalize).join(" ")
@@ -91,11 +92,10 @@ export function convertCase(input: string, caseType: CaseType): string {
     case "constant":
       return words.map((w) => w.toUpperCase()).join("_")
 
-    default:
-      // This ensures that if a new CaseType is added, the compiler will
-      // raise an error if it's not handled in the switch statement.
+    default: {
       const _exhaustiveCheck: never = caseType
       throw new Error(`Unsupported case type: ${_exhaustiveCheck}`)
+    }
   }
 }
 

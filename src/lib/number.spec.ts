@@ -47,7 +47,7 @@ describe("formatNumber", () => {
 
     it("should format numbers with E suffix", () => {
       expect(formatNumber(1000000000000000000)).toBe("1E")
-      expect(formatNumber(1234567890123456789)).toBe("1.2E")
+      expect(formatNumber(1234567890123456789n)).toBe("1.2E")
     })
 
     it("should format small numbers without suffix", () => {
