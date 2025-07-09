@@ -52,7 +52,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --max-warnings=0",
-    "prepublishOnly": "bun run clean && bun run build:all && bun run test",
+    "prepublishOnly": "bun run build:all && bun run test",
     "test": "vitest run",
     "test:watch": "vitest"
   },
