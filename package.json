@@ -47,7 +47,7 @@
     "build:all": "bun run build && bun run build:types",
     "build:types": "tsc --emitDeclarationOnly --outDir dist",
     "check": "bun run lint && bun run format:check",
-    "clean": "rimraf dist",
+    "clean": "rm -rf dist node_modules bun.lockb package-lock.json",
     "dev": "rolldown -c rolldown.dev.config.ts -w",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
