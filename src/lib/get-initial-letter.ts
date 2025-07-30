@@ -7,15 +7,15 @@
  * getInitialLetter("John Doe") // "JD"
  * getInitialLetter(" Beyoncé  Knowles-Carter") // "BK"
  * getInitialLetter("Cher") // "C"
- * getInitialLetter(null) // ""
+ * getInitialLetter(null) // "?"
  *
  * @param fullName The full name to process. Can be a string, null, or undefined.
  * @returns The uppercase initials (1 or 2 characters), or an empty string if the input is invalid.
  */
-export function getInitialLetter(fullName?: string | null): string {
+export function getInitialLetter(fullName?: string | null, fallback: string = "?"): string {
   const cleanedName = fullName?.trim() ?? ""
   if (!cleanedName) {
-    return ""
+    return fallback
   }
 
   return cleanedName

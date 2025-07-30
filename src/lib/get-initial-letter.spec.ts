@@ -3,19 +3,19 @@ import { getInitialLetter } from "./get-initial-letter"
 
 describe("getInitialLetter", () => {
   it("returns empty string for null input", () => {
-    expect(getInitialLetter(null)).toEqual("")
+    expect(getInitialLetter(null)).toEqual("?")
   })
 
   it("returns empty string for undefined input", () => {
-    expect(getInitialLetter(undefined)).toEqual("")
+    expect(getInitialLetter(undefined)).toEqual("?")
   })
 
   it("returns empty string for empty string", () => {
-    expect(getInitialLetter("")).toEqual("")
+    expect(getInitialLetter("")).toEqual("?")
   })
 
   it("returns empty string for whitespace only", () => {
-    expect(getInitialLetter("   ")).toEqual("")
+    expect(getInitialLetter("   ")).toEqual("?")
   })
 
   it("returns single letter for single name", () => {
