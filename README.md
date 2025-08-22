@@ -13,7 +13,7 @@ bun install @gmana/utils
 You can import utilities from `@gmana/utils` as follows:
 
 ```typescript
-import { absoluteUrl, chunk, clsx, compactObject } from "@gmana/utils"
+import { absoluteUrl, chunk, clsx, compactObject, toBytes, fromBytes } from "@gmana/utils"
 ```
 
 ## Available Utilities
@@ -251,6 +251,33 @@ const contact = {
 
 const vcard = VCardGenerator.generate(contact)
 const blob = VCardGenerator.createDownloadBlob(contact)
+```
+
+### bytes
+
+Byte conversion and formatting utilities.
+
+- `toBytes(input, options?)`: Convert byte input with units to bytes.
+- `fromBytes(bytes, options?)`: Convert bytes back to human readable format.
+- `createByteConverter(defaultOptions?)`: Create a byte converter with default options.
+
+```typescript
+import { toBytes, fromBytes, createByteConverter } from "@gmana/utils"
+
+// Convert to bytes
+toBytes("1kb") // 1024
+toBytes("1mb") // 1048576
+toBytes("2.5gb") // 2684354560
+toBytes("1kb", { base: 1000 }) // 1000 (decimal)
+
+// Convert from bytes
+fromBytes(1024) // "1.00 KB"
+fromBytes(1048576) // "1.00 MB"
+fromBytes(1000, { base: 1000 }) // "1.00 KB"
+
+// Create converter with defaults
+const converter = createByteConverter({ base: 1000 })
+converter("1kb") // 1000
 ```
 
 ### getInitialLetter
