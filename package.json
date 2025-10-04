@@ -1,6 +1,6 @@
 {
   "name": "@gmana/utils",
-  "version": "1.5.13",
+  "version": "1.5.14",
   "description": "TypeScript utility functions with Tailwind CSS helpers and common JavaScript utilities",
   "keywords": [
     "gmana",
