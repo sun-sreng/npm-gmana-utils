@@ -83,7 +83,7 @@
     "prettier": "^3.6.2",
     "rimraf": "^6.0.1",
     "rolldown": "^1.0.0-beta.44",
-    "rolldown-plugin-dts": "^0.16.12",
+    "rolldown-plugin-dts": "^0.17.1",
     "tailwind-merge": "^3.3.1",
     "typescript-eslint": "^8.46.2",
     "vitest": "^4.0.0"
