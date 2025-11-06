@@ -8,6 +8,8 @@ A comprehensive utility library for common JavaScript/TypeScript operations.
 bun install @gmana/utils
 ```
 
+- [pick](./wiki/pick-usage-guide.md)
+
 ## Usage
 
 You can import utilities from `@gmana/utils` as follows:
